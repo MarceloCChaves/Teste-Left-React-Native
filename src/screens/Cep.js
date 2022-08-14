@@ -2,10 +2,16 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import api from "../services/api"
+import { useNavigation } from '@react-navigation/native'
 
 export default function App() {
   const [searchCEP, setSearchCEP] = useState("");
   const [Cep, setCep] = useState({});
+  const navigation = useNavigation();
+
+  function backToHome(){
+    navigation.goBack()
+  }
 
   async function handleSearch(){
     try {
@@ -19,6 +25,9 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <TouchableOpacity style={styles.goBackButton} onPress={backToHome}>
+        <Text style={styles.text}>Voltar</Text>
+      </TouchableOpacity>
       <TextInput
         style={styles.input}
         placeholder="Digite um cep no formato xxxxxxxx"
@@ -48,7 +57,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   input: {
-    height: 40,
+    width: 265,
     margin: 12,
     borderWidth: 1,
     padding: 10,
@@ -56,16 +65,25 @@ const styles = StyleSheet.create({
     borderRadius: 8
   },
   button: {
+    width: 265,
     backgroundColor: "#223240",
     padding: 16,
     borderRadius: 8
+  },
+  goBackButton: {
+    backgroundColor: "#223240",
+    padding: 10,
+    borderRadius: 8,
+    position: 'absolute',
+    top: 40,
+    left: 10
   },
   text: {
     color: "#fff",
     textAlign: 'center'
   },
   info: {
-    width: 300,
+    width: 265,
     margin: 12,
     borderWidth: 1,
     padding: 10,
