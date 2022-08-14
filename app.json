@@ -7,9 +7,9 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/CepSearch.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#347355"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -31,3 +31,4 @@
     }
   }
 }
+
